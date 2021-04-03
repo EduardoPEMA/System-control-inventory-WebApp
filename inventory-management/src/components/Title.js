@@ -5,8 +5,9 @@ const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: 70,
     fontFamily: 'Rubik',
-    color: 'white',
-    marginLeft: 30,
+    color: 'black',
+    width: 'auto',
+    backgroundColor: theme.palette.primary.main,
   },
 }))
 const Title = ({ children, props }) => {

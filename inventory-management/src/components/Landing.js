@@ -1,19 +1,18 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
-import background from '../assets/design/bg-inventory.png'
+//import background from '../assets/design/bg-inventory.png'
 import Title from './Title'
 import StockEventsTable from './StockEventsTable'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'center',
     width: '100%',
-    height: '200vh',
+    height: '100%',
     marginTop: 0,
-    backgroundImage: 'url(' + background + ')',
-    backgroundSize: 'cover',
+    backgroundColor: theme.palette.primary.light,
   },
   container: {
-    backgroundColor: 'grey',
+    backgroundColor: theme.palette.secondary.dark,
     borderRadius: 30,
     padding: 10,
     marginLeft: 180,

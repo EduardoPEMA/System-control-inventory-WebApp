@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core'
+
 const useStyles = makeStyles((theme) => ({
   root: {},
   subtitle: {
@@ -23,19 +24,29 @@ const useStyles = makeStyles((theme) => ({
 const StockDetails = (props) => {
   const { name, total, stockEvents } = props
   const classes = useStyles()
+  const [show, setStateShow] = useState(false)
+
+  const handleStateChange = (event, value) => {
+    setStateShow(true)
+  }
   return (
     <div className={classes.root}>
-      <h2 className={classes.subtitle}>
+      <option
+        className={classes.subtitle}
+        value={show}
+        onClick={handleStateChange}
+      >
         Producto: {name} | Total: {total}
-      </h2>
-      {stockEvents.map((e) => (
-        <div className={classes.containerProduct}>
-          <p className={classes.text}>Id: {e.id}</p>
-          <p className={classes.text}>Tipo: {e.type}</p>
-          <p className={classes.text}>Producto: {e.product.name}</p>
-          <p className={classes.text}>Cantidad: {e.qty}</p>
-        </div>
-      ))}
+      </option>
+      {show &&
+        stockEvents.map((e) => (
+          <div className={classes.containerProduct}>
+            <p className={classes.text}>Id: {e.id}</p>
+            <p className={classes.text}>Tipo: {e.type}</p>
+            <p className={classes.text}>Producto: {e.product.name}</p>
+            <p className={classes.text}>Cantidad: {e.qty}</p>
+          </div>
+        ))}
     </div>
   )
 }

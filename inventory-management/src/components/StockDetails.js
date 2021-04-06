@@ -27,7 +27,7 @@ const StockDetails = (props) => {
   const [show, setStateShow] = useState(false)
 
   const handleStateChange = (event, value) => {
-    setStateShow(true)
+    setStateShow(!show)
   }
   return (
     <div className={classes.root}>

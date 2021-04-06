@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stockevents",
+  "info": {
+    "name": "stockevent",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "add",
+        "remove"
+      ]
+    },
+    "qty": {
+      "type": "integer"
+    },
+    "product": {
+      "model": "product",
+      "via": "stockevents"
+    }
+  }
+}

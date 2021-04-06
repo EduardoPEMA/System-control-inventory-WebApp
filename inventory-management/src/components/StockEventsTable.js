@@ -1,5 +1,7 @@
 import React from 'react'
 import Products from './Products'
+import axios from 'axios'
+
 const fetchProducts = [
   {
     id: 1,
@@ -34,8 +36,40 @@ const fetchStockEvents = [
     product: fetchProducts[1],
   },
 ]
-const StockEventsTable = () => {
-  return <Products products={fetchProducts} stockEvents={fetchStockEvents} />
+
+class StockEventsTable extends React.Component {
+  state = {
+    fetchProducts,
+    fetchStockEvents,
+  }
+  /*  const [fetchProducts, setFetchProduct] = useState('1')
+  const [fetchStockEvents, setStockEvent] = useState([])
+
+  const handleStateProduct = (event, value) => {
+    setFetchProduct(fetchProducts)
+  }
+  const handleStateStock = (event, value) => {
+    setStockEvent(fetchStockEvents)
+  } */
+
+  async componentDidMount() {
+    const productsRes = await axios({
+      method: 'GET',
+      url: 'http://localhost:1337/products',
+    })
+    const stockEventsRes = await axios({
+      method: 'GET',
+      url: 'http://localhost:1337/stockEvents',
+    })
+
+    const fetchProducts = productsRes.data
+    const fetchStockEvents = stockEventsRes.data
+    this.setState({ fetchProducts, fetchStockEvents })
+  }
+  render() {
+    const { fetchProducts, fetchStockEvents } = this.state
+    return <Products products={fetchProducts} stockEvents={fetchStockEvents} />
+  }
 }
 
 export default StockEventsTable

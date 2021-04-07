@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
 const Products = (props) => {
   const classes = useStyles()
   const { products, stockEvents } = props
+
   return (
     <div className={classes.root}>
       {products.map((product) => {

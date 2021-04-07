@@ -6,12 +6,17 @@ import StockEventsTable from './StockEventsTable'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'center',
-    width: '100%',
-    height: '100%',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100vw',
+    height: '100vh',
+    flexGrow: '1',
     marginTop: 0,
     backgroundColor: theme.palette.primary.light,
   },
   container: {
+    marginTop: '30',
     backgroundColor: theme.palette.secondary.dark,
     borderRadius: 30,
     padding: 10,
@@ -23,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
 const Landing = () => {
   const classes = useStyles()
   return (
-    <div className={classes.root} id="landing">
-      <Title children="Sistema de Inventario:" />
+    <div className={classes.root} pos>
+      <Title children="Sistema de Inventario" />
       <div className={classes.container}>
         <StockEventsTable />
       </div>

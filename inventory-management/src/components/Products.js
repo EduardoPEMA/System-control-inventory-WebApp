@@ -34,8 +34,8 @@ const Products = (props) => {
           <div className={classes.container}>
             <StockDetails
               name={product.name}
-              total={stockTotal}
               stockEvents={relevantStockEvents}
+              total={stockTotal}
             />
             <Divider />
           </div>

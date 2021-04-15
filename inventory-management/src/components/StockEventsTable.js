@@ -12,9 +12,6 @@ const StockEventsTable = () => {
   const [product, setProduct] = useState([])
   const [stock, setStock] = useState([])
 
-  /* const handleProductChange = (event, value) => {
-    setProduct(event.target.value)
-  } */
   useEffect(() => {
     const eri = async () => {
       const productsRes = await axios({

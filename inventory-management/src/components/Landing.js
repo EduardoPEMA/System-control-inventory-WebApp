@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100vw',
-    height: '100vh',
+    minHeight: '100vh',
     flexGrow: '1',
     marginTop: 0,
     backgroundColor: theme.palette.primary.light,

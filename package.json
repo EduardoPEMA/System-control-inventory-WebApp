@@ -1,5 +1,10 @@
 {
   "dependencies": {
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "*",
     "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.2.0"
   }
 }

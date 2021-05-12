@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core'
 import Products from './Products'
 import axios from 'axios'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: 'Rubik',
@@ -31,6 +32,8 @@ const StockEventsTable = () => {
     }
     eri()
   }, [])
+
+  //const table = Array.isArray(product) && product.map((name) => Products(name))
   return (
     <div className={classes.root}>
       <Products products={product} stockEvents={stock} />

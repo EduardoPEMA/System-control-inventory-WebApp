@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
-//import background from '../assets/design/bg-inventory.png'
+import Container from '@material-ui/core/Container'
 import Title from './Title'
 import StockEventsTable from './StockEventsTable'
 const useStyles = makeStyles((theme) => ({
@@ -16,23 +16,19 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.light,
   },
   container: {
-    marginTop: '30',
     backgroundColor: theme.palette.secondary.dark,
-    borderRadius: 30,
-    padding: 10,
-    marginLeft: 180,
-    marginRight: 250,
+    borderRadius: 20,
   },
 }))
 
 const Landing = () => {
   const classes = useStyles()
   return (
-    <div className={classes.root} pos>
+    <div className={classes.root}>
       <Title children="Sistema de Inventario" />
-      <div className={classes.container}>
+      <Container className={classes.container}>
         <StockEventsTable />
-      </div>
+      </Container>
     </div>
   )
 }

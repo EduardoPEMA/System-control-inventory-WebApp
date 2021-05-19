@@ -1,5 +1,5 @@
-import React from 'react'
-const Icon = ({ iconname }) => {
+import React from "react";
+const IconType = ({ iconname }) => {
   return (
     <span className="">
       {
@@ -9,7 +9,7 @@ const Icon = ({ iconname }) => {
         }[iconname]
       }
     </span>
-  )
-}
+  );
+};
 
-export default Icon
+export default IconType;

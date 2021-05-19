@@ -1,35 +1,54 @@
-import TextField from '@material-ui/core/TextField'
-import Autocomplete from '@material-ui/lab/Autocomplete'
-import React, { useEffect } from 'react'
+import { makeStyles } from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import React from "react";
+import IconSearch from "./IconSearch";
 
-const SearchBar = ({ products, ...props }) => {
-  /*  const [value, setValue] = useState(products[0])
-  const [inputValue, setInputValue] = useState() */
-  useEffect(() => {
-    console.log(products)
-  }, [products])
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: theme.palette.secondary.main,
+    width: "50%",
+    borderRadius: "5px",
+  },
+  box: {
+    flexDirection: "row",
+    display: "flex",
+    width: "80%",
+    marginLeft: "40px",
+    backgroundColor: theme.palette.secondary.main,
+  },
+  text: {
+    backgroundColor: "#e1e3dd",
+    borderStyle: "solid",
+    borderColor: "white",
+    borderRadius: "5px",
+  },
+}));
 
-  console.log(products)
-  if (products.length === 0) {
-    console.log('hola')
-    return <></>
-  }
-
+const SearchBar = ({ products }) => {
+  const classes = useStyles();
   return (
-    <Autocomplete
-      id="Iss"
-      options={products.map((product) => product.name)}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label="Search input"
-          margin="normal"
-          variant="outlined"
-          InputProps={{ ...params.InputProps, type: 'search' }}
-        />
-      )}
-    />
-  )
-}
+    <div className={classes.root}>
+      <IconSearch />
+      <Autocomplete
+        className={classes.box}
+        freeSolo
+        id="free-solo-2-demo"
+        disableClearable
+        options={products.map((option) => option.name)}
+        renderInput={(params) => (
+          <TextField
+            className={classes.text}
+            {...params}
+            label="Nombre del producto"
+            margin="normal"
+            variant="filled"
+            InputProps={{ ...params.InputProps, type: "search" }}
+          />
+        )}
+      />
+    </div>
+  );
+};
 
-export default SearchBar
+export default SearchBar;

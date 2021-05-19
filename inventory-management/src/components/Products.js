@@ -1,34 +1,36 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/core'
-import StockDetails from './StockDetails'
-import Divider from '@material-ui/core/Divider'
+import React from "react";
+import { makeStyles } from "@material-ui/core";
+import StockDetails from "./StockDetails";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    fontFamily: 'Rubik',
+    fontFamily: "Rubik",
   },
   container: {
-    backgroundColor: theme.palette.secondary.dark,
+    paddingBottom: "20px",
+    marginBottom: "15px",
+    marginTop: 40,
+    display: "table",
   },
-}))
+}));
 const Products = (props) => {
-  const classes = useStyles()
-  const { products, stockEvents } = props
+  const classes = useStyles();
+  const { products, stockEvents } = props;
 
   return (
     <div className={classes.root}>
       {products.map((product) => {
-        const { id } = product
+        const { id } = product;
         const relevantStockEvents = stockEvents.filter(
-          (se) => se.product.id === id,
-        )
+          (se) => se.product.id === id
+        );
 
         const stockTotal = relevantStockEvents.reduce(
           (accumulator, currentElement) => {
-            return accumulator + currentElement.qty
+            return accumulator + currentElement.qty;
           },
-          0,
-        ) //Initial value to 0
+          0
+        ); //Initial value to 0
 
         return (
           <div className={classes.container}>
@@ -37,12 +39,11 @@ const Products = (props) => {
               stockEvents={relevantStockEvents}
               total={stockTotal}
             />
-            <Divider />
           </div>
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
-export default Products
+export default Products;

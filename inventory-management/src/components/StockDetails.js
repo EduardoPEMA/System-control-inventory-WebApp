@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Container, Grid, makeStyles } from "@material-ui/core";
-/* import AddIcon from "../assets/icons/addIcon.png";
-import RemoveIcon from "../assets/icons/removeIcon.png"; */
-
+import IconType from "./IconType";
 const useStyles = makeStyles((theme) => ({
   root: {},
   subtitle: {
@@ -10,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     textAlign: "column",
   },
+
   text: {
     fontSize: 20,
     color: theme.palette.secondary.main,
@@ -33,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     width: 40,
     display: "flex",
+    position: "relative",
   },
 }));
 
@@ -43,9 +43,8 @@ const StockDetails = ({ name, total, stockEvents }) => {
   const handleStateChange = (event, value) => {
     setStateShow(!show);
   };
-
   return (
-    <div className={classes.root}>
+    <div className="textProduct">
       <option
         className={classes.subtitle}
         value={show}
@@ -63,8 +62,9 @@ const StockDetails = ({ name, total, stockEvents }) => {
               alignItems="flex-start"
             >
               <p className={classes.text}>Id: {e.id}</p>
-              <p className={classes.text}>Tipo: {e.type}</p>
               <p className={classes.text}>Producto: {e.product.name}</p>
+              <p className={classes.text}>Movimiento: {e.type}</p>
+              <IconType stockEvents={stockEvents} />
               <p className={classes.text}>Cantidad: {e.qty}</p>
             </Grid>
           </Container>

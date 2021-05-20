@@ -7,7 +7,6 @@ const useStyles = makeStyles((theme) => ({
   title: {
     verticalAlign: "middle",
     textAlign: "center",
-    width: "100%",
     backgroundColor: theme.palette.primary.main,
     marginBottom: 20,
   },

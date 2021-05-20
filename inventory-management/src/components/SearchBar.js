@@ -44,6 +44,7 @@ const SearchBar = ({ products }) => {
             margin="normal"
             variant="filled"
             InputProps={{ ...params.InputProps, type: "search" }}
+            onChange={(e) => e.target.value}
           />
         )}
       />

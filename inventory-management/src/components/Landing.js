@@ -9,15 +9,13 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    width: "100vw",
-    minHeight: "150vh",
     flexGrow: "1",
     marginTop: 0,
     backgroundColor: theme.palette.primary.main,
+    border: "2px solid #eee",
   },
   container: {
     backgroundColor: theme.palette.primary.main,
-    borderRadius: 20,
   },
 }));
 

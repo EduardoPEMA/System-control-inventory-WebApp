@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main,
   },
   containerProduct: {
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: theme.palette.primary.paper,
     border: "2px solid #eee",
     borderRadius: 20,
     marginBottom: 10,
@@ -36,6 +36,13 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     position: "relative",
   },
+  error: {
+    fontSize: 30,
+    color: "grey",
+    marginTop: "0",
+    textAlign: "column",
+    padding: 0,
+  },
 }));
 
 const StockDetails = ({ name, total, stockEvents }) => {
@@ -47,13 +54,23 @@ const StockDetails = ({ name, total, stockEvents }) => {
   };
   return (
     <div className="textProduct">
-      <option
-        className={classes.subtitle}
-        value={show}
-        onClick={handleStateChange}
-      >
-        ◦ Producto: {name} | Total: {total}
-      </option>
+      {total > 0 ? (
+        <option
+          className={classes.subtitle}
+          value={show}
+          onClick={handleStateChange}
+        >
+          ◦ Producto: {name} | Total: {total}
+        </option>
+      ) : (
+        <option
+          className={classes.error}
+          value={show}
+          onClick={handleStateChange}
+        >
+          ◦ Producto: {name} | Total: {total}
+        </option>
+      )}
       {show &&
         stockEvents.map((e) => (
           <Container className={classes.containerProduct}>

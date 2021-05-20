@@ -6,9 +6,7 @@ const useStyles = makeStyles((theme) => ({
   subtitle: {
     fontSize: 30,
     color: "white",
-    marginTop: "0",
     textAlign: "column",
-    padding: 0,
   },
 
   text: {
@@ -66,7 +64,7 @@ const StockDetails = ({ name, total, stockEvents }) => {
               <p className={classes.text}>Id: {e.id}</p>
               <p className={classes.text}>Producto: {e.product.name}</p>
               <p className={classes.text}>Movimiento: {e.type}</p>
-              <IconType stockEvents={e.type} />
+              <IconType stockEvents={stockEvents} />
               <p className={classes.text}>Cantidad: {e.qty}</p>
             </Grid>
           </Container>

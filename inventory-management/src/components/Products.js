@@ -29,8 +29,8 @@ const Products = (props) => {
           (accumulator, currentElement) => {
             return accumulator + currentElement.qty;
           },
-          0
-        ); //Initial value to 0
+          0 //Initial value to 0
+        );
 
         return (
           <div className={classes.container}>

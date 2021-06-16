@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Grid, makeStyles } from "@material-ui/core";
-import IconType from "./IconType";
-const useStyles = makeStyles((theme) => ({
+/* import IconType from "./IconType";
+ */ const useStyles = makeStyles((theme) => ({
   root: {},
   subtitle: {
     fontSize: 30,
@@ -45,12 +45,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const StockDetails = ({ name, total, stockEvents }) => {
+const StockDetails = ({ name, total, stockEvents, date }) => {
   const classes = useStyles();
   const [show, setStateShow] = useState(false);
 
-  const handleStateChange = (event, value) => {
+  const handleStateChange = () => {
     setStateShow(!show);
+  };
+
+  const formatDate = (date) => {
+    const dateStock = new Date(date);
+    return (
+      (dateStock.getDate() < 10
+        ? "0" + dateStock.getDate()
+        : dateStock.getDate()) +
+      "/" +
+      (dateStock.getMonth() < 10
+        ? "0" + (dateStock.getMonth() + 1)
+        : dateStock.getMonth() + 1) +
+      "/" +
+      dateStock.getFullYear()
+    );
   };
   return (
     <div className="textProduct">
@@ -80,10 +95,13 @@ const StockDetails = ({ name, total, stockEvents }) => {
               justify="center"
               alignItems="flex-start"
             >
+              <p className={classes.text}>
+                Fecha movimiento: {formatDate(e.created_at)}
+              </p>
               <p className={classes.text}>Id: {e.id}</p>
               <p className={classes.text}>Producto: {e.product.name}</p>
               <p className={classes.text}>Movimiento: {e.type}</p>
-              <IconType stockEvents={e.type} />
+              {/* <IconType stockEvents={e.type} / */}
               <p className={classes.text}>Cantidad: {e.qty}</p>
             </Grid>
           </Container>

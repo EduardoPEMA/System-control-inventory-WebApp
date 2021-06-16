@@ -11,8 +11,7 @@ const useStyles = makeStyles((theme) => ({
   bar: {
     width: "70%",
     position: "relative",
-    alignItems: "right",
-    justifyContent: "right",
+    marginLeft: "65%",
   },
 }));
 const StockEventsTable = () => {
